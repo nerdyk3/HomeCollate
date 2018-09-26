@@ -1,0 +1,180 @@
+{%extends 'base.html'%} {%block element%} {%load static%}
+
+<div class="row search-row">
+    <div class="col-sm-2 col-md-2 col-lg-2">
+
+    </div>
+
+    <div class="col-sm-8 col-md-8 col-lg-8" style=" margin-left:25% ; ">
+
+        <div class="header-image">
+            <div class="profile-image" class="img-responsive">
+                <img src="{%static '/images/emoji-CBM.png'%}" width="63%" />
+            </div>
+            <form class="example" method="POST" action="{%url 'compare'%}">
+                {%csrf_token%}
+                <select class="form-group form-control" name="name" style="width:64%">
+                    <option value="">Select the City</option>
+                    {%for x3 in data%}
+                    <option value="{{x3}}">{{x3}}</option>
+                    {% endfor %}
+                </select>
+                <button class="btn-primary search-btn" type="submit"><b style="color:#960240; font-size: 120%; ">Search</b> </button>
+            </form>
+        </div>
+
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2 ">
+        <!-- {%for thing in comp_data%} 
+        {{comp_data}}
+         {{thing.company}}
+       {%endfor%} -->
+
+    </div>
+</div>
+
+<main>
+
+    <div class="row">
+        <div class="col-sm-9 col-md-9 col-lg-9" style="padding-right: 0px; padding-left: 0px">
+            <!-- company 1-->
+            {%for thing in comp_data%}
+            <div class="container-fluid" style="margin-bottom:20px; margin-left: 45px; margin-top: 20px;">
+
+                <div class="row" style=" box-shadow: 10px 10px 12px #888888; border: 2px solid #f2f2f2;">
+                    <div class="col-sm-2 col-md-2 col-lg-2">
+                        <div class="box1">
+                            <img src="{{thing.company_logo}}" alt="{{thing.company}}" class="company-logo">
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3" style="padding-right: 18px;">
+                        <div class="row">
+                            <div class="box2">
+                                {{thing.company}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="box3">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-3 col-md-3 col-lg-3" style="padding-right: 6px; padding-left: 0px;
+           border-left: 2px solid white;">
+                        <div class="box4">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-2 col-md-2 col-lg-2" style="border-right: 2px solid white;">
+                        <div class="row">
+                            <div class="box5">
+
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="box6">
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-2 col-md-2 col-lg-2" style="padding-right: 3px; padding-left:3px;">
+                        <div class="box7">
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            {%endfor%}
+
+            <!-- sidebar-->
+            <div class="col-sm-2 col-md-2 col-lg-2" style="background-color: #930240; margin-left: 61px; margin-top: 20px; box-shadow: 10px 10px 12px #888888; ">
+
+                <div class="row-sm-12 row-md-12 col-md-12">
+                    <div class="sidebox">
+
+                        <div class="row">
+                            <div class="sidebox1">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="sidebox2">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="sidebox3">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="sidebox4">
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="row-sm-12 row-md-12 col-md-12">
+                    <div class="sidebox">
+                        <div class="row">
+                            <div class="sidebox1">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="sidebox2">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="sidebox3">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="sidebox4">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row-sm-12 row-md-12 col-md-12">
+                    <div class="sidebox">
+                        <div class="row">
+                            <div class="sidebox1">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="sidebox2">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="sidebox3">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="sidebox4">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+</main>
+{%endblock%}

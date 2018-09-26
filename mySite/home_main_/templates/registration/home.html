@@ -1,0 +1,18 @@
+{% block content %}
+    <h1>Django Allauth Tutorial</h1>
+    {% if user.is_authenticated %}
+    <p>Welcome {{ user.username }} !!!</p>
+    {% else %}
+    <h2>Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form>
+    <br>
+    <p><strong>-- OR --</strong></p>
+    <a href="{% url 'social:begin' 'github' %}">Login with GitHub</a><br>
+    <a href="{% url 'social:begin' 'twitter' %}">Login with Twitter</a><br>
+    <a href="{% url 'social:begin' 'facebook' %}">Login with facebook</a>
+    {%endif%}
+  {% endblock %}
