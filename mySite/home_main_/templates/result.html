@@ -1,0 +1,74 @@
+{%extends 'base.html'%} {%block element%} {%load static%}
+<!--main body -->
+<main>
+    <div class="row">
+          {%for show_company in result%}
+            
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <!-- company 1-->
+            <div class="container-fluid" style="padding: 0px;height: 410px; margin-top: 6%; box-shadow: 10px 10px 12px #888888; border: 2px solid #e6e6e6;">
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="s-result-box1" style="padding-left: 17px;line-height: 14px; padding-top: 14px;">
+                            <img src="../images/stanza.jpg" alt="{{show_company.Company}}" class="company-logo">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="row">
+                            <div class="s-result-box2">
+                                <a class="nav-link" style="margin-top:8px;font-size:14px;color: #952e40; padding-left: 17px;line-height: 14px; padding-top: 14px;">
+                                    <p><b>Rating:</b> {{show_company.Rating}}/5</p>
+                                    <p><b>Review:</b>{{show_company.Review}}</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="s-result-box3" style="padding-left: 14px;color: #952e40;line-height: 14px; padding-top: 14px;">
+                                {{show_company.Property_Name}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="s-result-box4" style="padding-left: 14px;color: #952e40;line-height: 14px; padding-top: 14px;">
+                                {{show_company.Address}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="s-result-box5" style="padding-left: 14px;color: #952e40;line-height: 14px; padding-top: 14px;">
+                        <b>For </b>{{show_company.Gender}}
+
+                    </div>
+                    <div class="s-result-box6" style="padding-left: 14px;color: #952e40;line-height: 14px; padding-top: 10px;">
+                        Nearest to {{show_company.Near_College}}
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="s-result-box7" style="padding-left: 17px;color: #952e40;line-height: 09px; padding-top: 10px;">
+                        <p>--Bed Prices--</p>
+                        <p><b>Single:</b> {{show_company.Single_Price}}/-</p>
+                        <p><b>Double:</b> {{show_company.Double_Price}}/-</p>
+                        <p><b>Triple:</b>{{show_company.Triple_Price}}/-</p>
+                        </a>
+                        <p><b>Quad:</b>{{show_company.Quad_Price}}/-</p>
+                        </a>
+                    </div>
+                    <div class="s-result-box8">
+                        <a href="{{show_company.pg_url}}" target="_blank" style="font-size:28px;color: #952e40;line-height: 27px;"><b>BOOK NOW</b></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+            {%endfor%}
+
+</div>
+</main>
+
+{%endblock%}

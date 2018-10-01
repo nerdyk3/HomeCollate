@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect,HttpResponse
 from django.views.generic import CreateView
-from .forms import RegisterForm
+from .forms import RegisterForm,SubscribersForm
 from django import forms
 # from .forms import signupForm
 from social_django.models import UserSocialAuth
@@ -93,3 +93,14 @@ def password(request):
     else:
         form = PasswordForm(request.user)
     return render(request, '/registration/password.html', {'form': form})
+
+def Subscriber(request):
+    if request.method == "POST":
+        form =SubscribersForm(request.POST)
+        if form.is_valid():
+            data=form.save(commit=False)
+            data.save()
+            return render(request, 'index.html',)
+    else:
+        form = RegisterForm(request.POST)
+    return render(request, 'index.html' ,{'form':form})

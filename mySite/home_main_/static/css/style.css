@@ -1,11 +1,11 @@
 
-@font-face {
+/*@font-face {
     font-family: corbelfont;
-    src: url(../font/corbel.tff);
+    src: url(fonts/corbel.tff);
 }
 *{
 	font-family: corbelfont;
-}
+}*/
 .navbar{
     background-color: #8e053d;
 }
@@ -110,22 +110,21 @@ main{
 }
 .box5 {
   height: 53px;
-  width: 100%;
+  width: 89%;
   background-color: #fff;
   border-radius: 10px 0px 0px 10px;
-      margin-top: 5px;
+  margin-top: 5px;
+  margin-left: 13%;
 }
 .box6 {
   height: 54px;
-  width: 27%;
   background-color: #fff;
   border-radius: 10px 0px 0px 10px;
   margin-top: 22px;
-  margin-left: 92px;
+  margin-left: 102px;
 }
 .box7 {
   height: 45px;
-  width: 100%;
   background-color: #fff;
   border-radius: 15px 15px 0px 0px;
   margin-top: 124px;
@@ -278,10 +277,11 @@ ul li a:hover{
       }
 .s-result-box5{
   height: 45px;
-  width: 30%;
+  width: 26%;
   background-color: #fff;
   border-radius: 0px 10px 10px 0px;
   margin-top: 5px;
+      margin-left: 15px;
       }
       .s-result-box6{
   height: 45px;
@@ -293,10 +293,11 @@ ul li a:hover{
       }
       .s-result-box7{
   height: 128px;
-  width: 62%;
+  width: 57.5%;
   background-color: #fff;
   border-radius: 0px 10px 10px 0px;
   margin-top: 5px;
+  margin-left: 15px;
       }
       .s-result-box8{
   height: 84px;

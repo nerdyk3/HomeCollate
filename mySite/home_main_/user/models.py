@@ -82,3 +82,8 @@ class User(AbstractBaseUser):
     def is_active(self):
         return self.active
         
+class Subscribers(models.Model):
+    Email = models.EmailField(max_length = 255)
+
+    def __str__(self):
+        return self.Email

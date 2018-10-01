@@ -7,9 +7,11 @@
     <link href="{%static 'css/style.css'%}" type="text/css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Homecollate</title>
+
 </head>
 
 <body>
@@ -17,20 +19,14 @@
     <nav class="navbar navbar-expand-md na-vbar-dark justify-content-end" style="background-color: #930240; font-size: 105%">
 
         <!--    <div class=" col-sm-1 col-md-3 col-lg-3">    -->
-        <a class="navbar-brand" href="index.html" style="width: 78%;"> <img src="{%static '/images/homecollate-logo.png'%}" alt="logo" width="18%" align="left"></a>
-        <!--  </div>  -->
-        <!--    <div class=" col-sm-1 col-md-2 col-lg-3">   -->
-
-        <!--    </div>  -->
-
-        <!--    <div class=" col-sm1 col-md-2 col-lg-6">    -->
+        <a class="navbar-brand" href="{%url 'index'%}" style="width: 78%;"> <img src="{%static '/images/homecollate-logo.png'%}" alt="logo" width="18%" align="left"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" style="width: 16%; padding:0px;">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav text-right ">
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link" style="color: white ;">Home</a>
+                    <a href="{%url 'index'%}" class="nav-link" style="color: white ;">Home</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link" style="color: white ;">AboutUs</a>
@@ -44,92 +40,112 @@
                 <li class="nav-item">
                     <a href="#" class="nav-link" style="color: white ;">PartnerWithUs </a>
                 </li>
-                {% if user.is_authenticated %}
-                <a href="#" class="nav-link" style="margin-left: 28px;">
-                    <img src="{{user.model_pic}}" class="rounded-circle" alt="img" width="30" height="30">
-                    <p class="nav-link" style="color: white ;">{{ user.username}}<br>{{user.email}}</p><a href="{% url 'logout' %}">logout</a>
-                {%else%}
-                <img src="{%static '/images/login-logo.png'%}" class="rounded-circle" alt="img" width="30" height="30">
-                <p><a href="{%url 'login' %}">guest</a></p>
-                {%endif%}
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <a data-toggle="dropdown">
+                        {% if user.is_authenticated %}
+                            <img src="{{MEDIA_URL}}/{{user.model_pic.url}}" class="rounded-circle" alt="{{user.username}}" width="30px" style="font-color: white" >
+                            <ul class="dropdown-menu" style="margin-left: -9em; line-height: 14px; background: #952e40;">
+                                <li><a href="#" class="nav-link">{{user.username}}</a></li>
+                <li><a href="mailto:{{user.email}}" class="nav-link">{{user.email}}</a></li>
+                <li><a href="{% url 'logout' %}" class="nav-link">logout</a></li>
+            </ul>
+            </a>
+            </div>
+            </li>
+
+            {%else%}
+            <img src="{%static '/images/login-logo.png'%}" class="rounded-circle" alt="img" width="30" height="30">
+            <p><a href="{%url 'login' %}" class="nav-link">Guest</a></p>
+            {%endif%}
+            </a>
+            </li>
             </ul>
         </div>
 
     </nav>
 
-        <!--main body -->
-{%block element%}
-{%endblock%}
+    <!--main body -->
+    {%block element%} {%endblock%}
 
-<!--- Footer --->
-<footer class="top-footer ">
+    <!--- Footer --->
+    <footer class="top-footer ">
         <div class="row ">
-        <div class="col-sm-12 col-md-12 col-lg-12 ">
-         <div class="input-group ">
-                 <input type="email " class="form-control " placeholder="Enter your email " style=" margin-left: 50% ; margin-top: 25px; margin-right: 8px; ">
-                 <span class="input-group-btn " style=" margin-top: 25px; margin-right: 88px; ">
-                 <button class="btn btn-theme " type="submit "><b>Subscribe</b></button>
-                 </span>
-                  </div>
-          </div>
-        </div>
-        </div>
-            <div class="container ">
+            <div class="col-sm-12 col-md-12 col-lg-12 ">
 
-                <div class="row ">
-                <div class="col-sm-4 col-md-4 col-lg-4 ">
-                  <p><h3>Head Office</h3>Homecollate, Gamma 2 ,Block G-424,<br> 1st Floor, <br>Greater Noida, 201310 <br>Uttar Pradesh </p>
-        <!--          <p><h3>HeadOffice</h3>E2/E3 1st floor, Amity Innovation Incubator, Amity University, Sector 125, Noida 201303</p>-->
-                  <p style="margin-bottom: 0px; margin-top: 0px; "><a href="tel:+919069686844 " style="color: #fff; ">Mob: +919069686844</a></p>
-                  <p><a href="mailto:homecollate@gmail.com " style="color: #fff; ">Mail: homecollate@gmail.com</a></p>
-                </div>
-                <div class="col-sm-4 col-md-4 col-lg-4 ">
+                <form action="{%url 'Subscriber'%}" method="POST">
+                    {%csrf_token%}
+                    <div class="form-group" style="margin-left: 64%;margin-right: 9%;">
+                        <input type="email " class="form-control " placeholder="Enter your email" name="Email" data-validate="Email is reauired">
+                    </div>
+                    <button class="btn btn-default" type="submit" style="margin-left: 92.3%;margin-top: -15px;margin-top: -6.9%;"><b>Subscribe</b></button>
+                </form>
+                </span>
 
-                  <ul style="list-style-type:none; margin-top: 52px; ">
-                    <li> <a href="# " target="_blank ">About Us</a></li>
-                    <li><a href="# " target="_blank ">Careers</a></li>
-                    <li><a href="# " target="_blank ">Blog</a></li>
-                    <li><a href="# " target="_blank ">Partner With Us</a></li>
-
-                  </ul>
-                </div>
-                <div class="col-sm-4 col-md-4 col-lg-4 ">
-                  <ul style="list-style-type:none; margin-top: 52px; ">
-
-                   <li><a href="# ">Help Centre</a></li>
-                    <li><a href="# ">Learn We Work</a></li>
-                    <li><a href="# ">Privacy Policy</a></li>
-                    <li><a href="# ">Terms and Conditions </a></li>
-
-                  </ul>
-                </div>
-
-              </div>
             </div>
+        </div>
+        </div>
+        <div class="container ">
 
-        </footer>
-        <footer class="bottom-footer ">
-          <div class="row ">
+            <div class="row ">
+                <div class="col-sm-4 col-md-4 col-lg-4 ">
+                    <p>
+                        <h3>Head Office</h3>Homecollate, Gamma 2 ,Block G-424,
+                        <br> 1st Floor,
+                        <br>Greater Noida, 201310
+                        <br>Uttar Pradesh </p>
+                    <!--          <p><h3>HeadOffice</h3>E2/E3 1st floor, Amity Innovation Incubator, Amity University, Sector 125, Noida 201303</p>-->
+                    <p style="margin-bottom: 0px; margin-top: 0px; "><a href="tel:+919069686844 " style="color: #fff; ">Mob: +919069686844</a></p>
+                    <p><a href="mailto:homecollate@gmail.com " style="color: #fff; ">Mail: homecollate@gmail.com</a></p>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4 ">
+
+                    <ul style="list-style-type:none; margin-top: 52px; ">
+                        <li> <a href="# " target="_blank ">About Us</a></li>
+                        <li><a href="# " target="_blank ">Careers</a></li>
+                        <li><a href="# " target="_blank ">Blog</a></li>
+                        <li><a href="# " target="_blank ">Partner With Us</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4 ">
+                    <ul style="list-style-type:none; margin-top: 52px; ">
+
+                        <li><a href="# ">Help Centre</a></li>
+                        <li><a href="# ">Learn We Work</a></li>
+                        <li><a href="# ">Privacy Policy</a></li>
+                        <li><a href="# ">Terms and Conditions </a></li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </footer>
+    <footer class="bottom-footer ">
+        <div class="row ">
             <div class="col-sm-4 col-md-4 col-lg-4 " style="margin-top: 49px; padding-left: 35px; ">
-              <p style="margin-bottom: 0px; "><a href="# " style=" color: white; font-size: 170%; ">www.homecollate.com</a></p>
+                <p style="margin-bottom: 0px; "><a href="{%url 'index'%}" style=" color: white; font-size: 170%; ">www.homecollate.com</a></p>
             </div>
             <div class="col-sm-4 col-md-4 col-lg-4 " style="padding-top: 13px; ">
-              <h2 style= "text-align:Center; color: white; "> Homecollate </h2>
-              <p style="color: #fff ; padding-left:26px; margin-bottom: 0px; ">Copyright &COPY; 2018 Homecollate | All Rights Reserved. </p>
+                <h2 style="text-align:Center; color: white; "> Homecollate </h2>
+                <p style="color: #fff ; padding-left:26px; margin-bottom: 0px; ">Copyright &COPY; 2018 Homecollate | All Rights Reserved. </p>
             </div>
             <div class="col-sm-4 col-md-4 col-lg-4 ">
-             <a href="# " class="fa fa-facebook "></a>
-             <a href="# " class="fa fa-twitter "></a>
-             <a href="# " class="fa fa-google "></a>
-             <a href="# " class="fa fa-linkedin "></a>
-             <a href="# " class="fa fa-youtube "></a>
+                <a href="# " class="fa fa-facebook "></a>
+                <a href="# " class="fa fa-twitter "></a>
+                <a href="# " class="fa fa-google "></a>
+                <a href="# " class="fa fa-linkedin "></a>
+                <a href="# " class="fa fa-youtube "></a>
 
             </div>
-          </div>
+        </div>
 
-        </footer>
+    </footer>
 
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN " crossorigin="anonymous "></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q " crossorigin="anonymous "></script>
-        </body>
-        </html>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q " crossorigin="anonymous "></script>
+</body>
+
+</html>
