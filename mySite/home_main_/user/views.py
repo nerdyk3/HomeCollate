@@ -21,8 +21,7 @@ def signup_page(request):
     if request.method == "POST":
         form =RegisterForm(request.POST)
         if form.is_valid():
-            data=form.save(commit=False)
-            data.save()
+            form.save()
             return render(request, 'index.html',)
 
     # if request.method == 'POST':

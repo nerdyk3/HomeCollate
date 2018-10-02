@@ -1,8 +1,10 @@
 from django.contrib.auth.models import AbstractBaseUser,BaseUserManager
 from django.db import models
+from django import forms
+
 
 class UserManager(BaseUserManager):
-    def create_user(self,email,full_name,password=None,is_active=True,is_admin=False, is_staff=False):
+    def create_user(self,email,full_name,password,is_active=True,is_admin=False, is_staff=False):
         if not email:
             raise ValueError("users must enter an email address")
         if not full_name:
@@ -21,7 +23,7 @@ class UserManager(BaseUserManager):
         user_obj.save(using = self._db)
         return user_obj
 
-    def create_superuser(self,email,full_name,password=None):
+    def create_superuser(self,email,full_name,password):
         user = self.create_user(
             email,
             full_name,
@@ -30,7 +32,7 @@ class UserManager(BaseUserManager):
             is_staff= True,
         )
         return user
-    def create_staffuser(self,email,full_name,password=None):
+    def create_staffuser(self,email,full_name,password):
         user = self.create_user(
             email,
             full_name,
@@ -49,10 +51,12 @@ class User(AbstractBaseUser):
     staff   = models.BooleanField(default=False)
     admin   = models.BooleanField(default=False)
     model_pic = models.ImageField(upload_to = 'pic_folder/', default = 'pic_folder/None/no-img.jpg')
+    password = models.CharField(max_length=255)
+    password1 = models.CharField(max_length=255)
 
     USERNAME_FIELD = 'email'
 
-    REQUIRED_FIELDS = ['full_name',]
+    REQUIRED_FIELDS = ['full_name','password']
 
     objects = UserManager()
 
