@@ -23,3 +23,5 @@ social-auth-core
 urllib3
 whitenoise
 django-ratings
+django-multiselectfield
+django-allauth
