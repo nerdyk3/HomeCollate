@@ -43,12 +43,12 @@
                     <li class="nav-item">
                         {% if user.is_authenticated %}
                         <div class="dropdown">
-                            <a class="nav-link" href="#" data-toggle="dropdown"><i class="fas fa-user"></i>
+                            <a class="nav-link" href="#" data-toggle="dropdown"><i class="fa fa-user-circle-o" aria-hidden="true"></i>
                             {{user.username}}</a>
                             <div class="dropdown-menu when-show">
                                 <a class="dropdown-item" href="#">{{user.username}}</a>
                                 <a class="dropdown-item" href="#">{{user.email}}</a>
-                                <a class="dropdown-item" href="{% url 'logout' %}">logout</a>
+                                <a class="dropdown-item" href="{% url 'logout' %}" style="color: red">LOGOUT</a>
                             </div>
                         </div>
                         {%else%}
@@ -84,20 +84,20 @@
                 </div>
                 <div class="col-sm-1 col-md-1 col-lg-1"></div>
                 <div class="col-sm-3 col-md-3 col-lg-3">
-                    <ul class="list-unstyled text-white">
-                        <li><a href="{%url 'about_us' %}"> About Us</a></li>
-                        <li><a href="#">Careers</li>
-                        <li><a href="#">Blog</li>
-                        <li><a href="{%url 'partner_with_us' %}">Partner With Us</li>
+                    <ul class="list-unstyled ">
+                        <li><a href="{%url 'about_us' %}" class="text-white"> About Us</a></li>
+                        <li><a href="#" class="text-white">Careers</li>
+                        <li><a href="#" class="text-white">Blog</li>
+                        <li><a href="{%url 'partner_with_us' %}" class="text-white">Partner With Us</li>
                     </ul>
                 </div>
                 <div class="col-sm-1 col-md-1 col-lg-1"></div>
                 <div class="col-sm-3 col-md-3 col-lg-3">
-                    <ul class="list-unstyled text-white">
-                        <li><a href="{%url 'faqs' %}">FAQs</li>
+                    <ul class="list-unstyled">
+                        <li><a href="{%url 'faqs' %}" class="text-white">FAQs</li>
                         <!-- <li><a href="#">Learn We Work</li> -->
-                        <li><a href="{%url 'privacy' %}">Privacy Policy</li>
-                        <li><a href="{%url 'T_C' %}">Terms and Conditions</li>
+                        <li><a href="{%url 'privacy' %}" class="text-white">Privacy Policy</li>
+                        <li><a href="{%url 'T_C' %}" class="text-white">Terms and Conditions</li>
                     </ul>
                 </div>
 
