@@ -14,7 +14,7 @@ class enquiry_web(models.Model):
 	enquiry_area = models.CharField(max_length=200)
 	enquiry_budget = models.IntegerField(max_length=200)
 	enquiry_type = models.CharField(max_length=20,choices=enquiry_type_list)
-	enquiry_comment = models.TextField(choices=enquiry_type_list)
+	enquiry_comment = models.TextField(max_length=500)
 
 	def __str__(self):
 		return self.enquiry_user

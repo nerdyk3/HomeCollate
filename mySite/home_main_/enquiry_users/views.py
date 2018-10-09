@@ -6,7 +6,8 @@ def enquiry(request):
 		d = enquiry_web_form(request.POST)
 		if d.is_valid():
 			D= d.save(commit=False)
-			return render(request,'enquiry_user.html',{})
+			D.save()
+			return render(request,'index.html',{})
 	else:
 		d = enquiry_web_form()
 		return render(request,'enquiry_user.html',{'d':d})
