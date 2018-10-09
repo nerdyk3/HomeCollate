@@ -4,8 +4,7 @@
     <div class="col-sm-2 col-md-2 col-lg-2">
 
     </div>
-
-    <div class="col-sm-8 col-md-8 col-lg-8" style=" margin-left:25% ; ">
+    <div class="col-sm-8 col-md-8 col-lg-8 search-header" style=" ">
 
         <div class="header-image">
             <div class="profile-image" class="img-responsive">
@@ -13,13 +12,15 @@
             </div>
             <form class="example" method="POST" action="{%url 'compare'%}">
                 {%csrf_token%}
-                <select class="form-group form-control" name="name" style="width:64%">
-                    <option value="">Select the City</option>
-                    {%for x3 in data%}
-                    <option value="{{x3}}">{{x3}}</option>
-                    {% endfor %}
-                </select>
-                <button class="btn-primary search-btn" type="submit"><b style="color:#960240; font-size: 120%; ">Search</b> </button>
+                <div>
+                    <select class="form-group form-control" name="name" style="width:64%">
+                        <option value="">Select the City</option>
+                        {%for x3 in data%}
+                        <option value="{{x3}}">{{x3}}</option>
+                        {% endfor %}
+                    </select>
+                    <button class="btn btn-submit" type="submit">Search</button>
+                </div>
             </form>
         </div>
 
@@ -29,158 +30,82 @@
 </div>
 
 <main>
+    <div class="container"> {%for show_company in comp_data%}
+        <form method="POST" action="{%url 'result'%}">
+        {%csrf_token%}
+            
+        <div class="row company-detail">
 
-    <div class="row">
-        <div class="col-sm-9 col-md-9 col-lg-9" style="padding-right: 0px; padding-left: 0px">
-            <!-- company 1-->{%csrf_token%}
-                {%for show_company in comp_data%}
-            <form method="POST" action="{%url 'result'%}">
-                <div class="container-fluid" style="width: 123%;margin-bottom:20px; margin-left: 45px; margin-top: 20px;">
+            <div class="col-sm-12 col-md-6 col-lg-6 company-bar" style="">
 
-                    <div class="row" style=" box-shadow: 10px 10px 12px #888888; border: 2px solid #f2f2f2;">
-                        <div class="col-sm-2 col-md-2 col-lg-2">
-                            <div class="box1">
-                                <img src="{{show_company.company_logo}}" alt="{{show_company.company}}" class="company-logo">
-                            </div>
-                        </div>
-                        <div class="col-sm-3 col-md-3 col-lg-3" style="padding-right: 18px;">
-                            <div class="row">
-                                <div class="box2" style="align-content: center;">
-                                    <a class="nav-link" style="font-size: 40px;margin-left: 14% ;margin-top: -7%;color: #952e40;" name="company">{{show_company.company}} </a>
-                                }
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="box3">
-                                    <a class="nav-link" style="font-size:13px;color: #952e40;">
-                                        <p style="margin-bottom: 0px;"><b>Rating:</b> {{show_company.Rating}}/5</p>
-                                        <p style="margin-bottom: 0px;"><b>Office Address:</b>{{show_company.company_address}} </p>
-                                        <p><b>Review:</b>{{show_company.Review}}</p>
-                                    </a>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="col-sm-3 col-md-3 col-lg-3" style="padding-right: 6px; padding-left: 0px;
-           border-left: 2px solid white;">
-                            <div class="box4">
-                                <a class="nav-link" style="font-size:16px;color: #952e40;">
-                                    <p style="margin-bottom: 0px;"><b>Minimum Price:</b> {{show_company.priceMini}}</p>
-                                    <p style="margin-bottom: 0px;"><b>Miximum Price:</b> {{show_company.priceMaxi}}</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-sm-2 col-md-2 col-lg-2" style="border-right: 2px solid white;">
-                            <div class="row">
-                                <div class="box5">
-                                    <a class="nav-link" style="font-size: 16px;color: #952e40;margin-top: -4px;text-align: right;">Total number of <p style="text-align: right;margin-top: -4px;">PGs</p></a>
-                                </div>
-
-                            </div>
-                            <div class="row">
-                                <div class="box6">
-                                    <a class="nav-link" style="font-size: 20px;color: #952e40;">
-                                        <b>{{show_company.PGnumber}}</b></a>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-sm-2 col-md-2 col-lg-2" style="padding-right: 3px; padding-left:3px;">
-                            <a class="nav-link" style="color: white ;margin-bottom: -68%;margin-left: 4%;   margin-top: 21.5%;font-size: 37px;">{{show_company.priceMini}}*</a>
-                            <div class="box7">
-                                <button type="submit"><a class="nav-link btn"style="font-size: 18px;color: #952e40;"><b>Check Now</b></a></button>
-                            </div>
-            </form>
-                        </div>
+                <div class="container">
+                    <div class="row" "> 
+          <div class="col-6 ">
+            <div class="box1 ">
+             <img src="{{show_company.company_logo}} " alt="{{show_company.company}} " class="company-logo ">
+            </div>
+          </div>
+          <div class="col-6 box2-style ">
+            <div class="row ">
+              <div class="box2 ">                    
+                <a> {{show_company.company}}</a>
+              </div>
 
             </div>
+            <div class="row ">
+              <div class="box3 ">
+                    <a class="nav-link " style="font-size:13px;color: #952e40; ">
+                    <p style="margin-bottom: 0px; "><b>Rating:</b> {{show_company.Rating}}/5</p>
+                    <p style="margin-bottom: 0px; "><b>Office Address:</b>{{show_company.company_address}} </p>
+                    <p><b>Review:</b>{{show_company.Review}}</p>
+
+                    </a>
+                    </div>
+
             </div>
-            {%endfor%}
 
-            <!-- sidebar-->
-            <!--  <div class="col-sm-2 col-md-2 col-lg-2" style="background-color: #930240; margin-left: 61px; margin-top: 20px; box-shadow: 10px 10px 12px #888888; ">
-
-                <div class="row-sm-12 row-md-12 col-md-12">
-                    <div class="sidebox">
-
-                        <div class="row">
-                            <div class="sidebox1">
-
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="sidebox2">
-
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="sidebox3">
-
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="sidebox4">
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="row-sm-12 row-md-12 col-md-12">
-                    <div class="sidebox">
-                        <div class="row">
-                            <div class="sidebox1">
-
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="sidebox2">
-
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="sidebox3">
-
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="sidebox4">
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="row-sm-12 row-md-12 col-md-12">
-                    <div class="sidebox">
-                        <div class="row">
-                            <div class="sidebox1">
-
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="sidebox2">
-
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="sidebox3">
-
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="sidebox4">
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div> -->
+          </div>
         </div>
+      </div>
     </div>
+          <div class="col-sm-12 col-md-6 col-lg-6 main-col2 ">
+              <div class="container ">
+       <div class="row ">
+          <div class="col-5 box4-style ">
+              <div class="box4 ">
+               <a class="nav-link " style="font-size:16px;color: #952e40; ">
+                <p style="margin-bottom: 0px; "><b>Minimum Price:</b> {{show_company.priceMini}}</p>
+                <p style="margin-bottom: 0px; "><b>Miximum Price:</b> {{show_company.priceMaxi}}</p>
+                                </a>
+              </div>
+          </div>
+          <div class="col-4 box5-style ">
+
+                <div class="box5 ">
+                <a class="nav-link " style="font-size: 16px;color: #952e40;margin-top: -4px;text-align: right; ">Total number of <p style="text-align: right;margin-top: -4px; ">PGs</p></a>
+
+                </div>
+
+                <div class="box6 ">
+                <a class="nav-link " style="font-size: 20px;color: #952e40; ">
+                <b>{{show_company.PGnumber}}</b></a>
+                </div>
+
+          </div>
+          <div class="col-3 box7-style ">
+                <div class="box7">
+                <button type="submit" name= "company" value="{{show_company.company}}" style="btn btn-submit"><b>Check Now</b></button>
+                </div>
+          </div>
+            </form>
+
+     </div>
+
+    </div>
+
+</div>
+
+</div>{%endfor%}
+</div>
 </main>
 {%endblock%}
