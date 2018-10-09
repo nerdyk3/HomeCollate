@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'user',
     'CompanyRegistration',
     'PropertyRegistration',
+    'enquiry_users',
 ]
 AUTH_USER_MODEL = 'user.User'
 

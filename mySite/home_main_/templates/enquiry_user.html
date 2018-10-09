@@ -1,0 +1,50 @@
+{%extends 'base.html'%} {%block element%} {%load static%}
+
+
+<div class="container">
+  <h2>Enquiry form</h2>
+  <form method="POST">
+                {%csrf_token%}
+
+  	<div class="form-group">
+      <label for="enquiry_user">Your Name:
+      <input type="text" class="form-control" id="pwd" placeholder="Enter Text" name="enquiry_user">
+      </label>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:
+      <input type="email" class="form-control" id="enquiry_email" placeholder="Enter email" name="enquiry_email">
+      </label>
+    </div>
+    <div class="form-group">
+      <label for="enquiry_number">Mobile Number:
+      <input type="number" class="form-control" id="enquiry_number" placeholder="Enter Mobile Number" name="enquiry_number">
+      </label>
+    </div>
+    
+    <div class="form-group">
+      <label for="enquiry_area">Area:
+      <input type="text" class="form-control" id="enquiry_area" placeholder="Enter Area" name="enquiry_area">
+      </label>
+    </div>
+    <div class="form-group">
+      <label for="enquiry_budget">Your Budget:
+      <input type="number" class="form-control" id="enquiry_budget" placeholder="Enter Budget" name="enquiry_budget">
+      </label>
+    </div>
+    <select name="enquiry_type">
+	  <option value="">Select Your Room</option>
+	  <option value="Private Room">Private Room</option>
+	  <option value="Shared Room">Shared Room</option>
+	</select>
+    <div class="form-group">
+      <label for="enquiry_budget">Comment:
+      <input type="text" class="form-control" id="enquiry_comment" placeholder="comment" name="enquiry_comment">
+      </label>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
+
+
+{%endblock%}

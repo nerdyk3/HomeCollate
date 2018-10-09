@@ -29,16 +29,16 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">AboutUs</a>
+                        <a class="nav-link" href="{%url 'about_us' %}">AboutUs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">WhyUs</a>
+                        <a class="nav-link" href="{%url 'why_us' %}">WhyUs</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Gallery</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">PartnerWithUs</a>
+                        <a class="nav-link" href="{%url 'partner_with_us' %}">PartnerWithUs</a>
                     </li>
                     <li class="nav-item">
                         {% if user.is_authenticated %}

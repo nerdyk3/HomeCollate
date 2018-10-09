@@ -16,45 +16,43 @@
         <div class="col-6">
             <div class="row">
               <div class="s-result-box2">
-                <a class="nav-link " style="font-size:13px;color: #952e40; ">
+                <a class="nav-link " style="margin-top:8px;font-size:14px;color: #952e40; padding-left: 17px;line-height: 14px; padding-top: 14px;">
                     <p style="margin-bottom: 0px; "><b>Rating:</b> {{show_company.Rating}}/5</p>
                     <p><b>Review:</b>{{show_company.Review}}</p>
                     </a>
               </div>
             </div>
             <div class="row">
-              <div class="s-result-box3">
+              <div class="s-result-box3" style="padding-left: 14px;color: #952e40;line-height: 14px; padding-top: 14px;">
                 {{show_company.Property_Name}}
               </div>
             </div>
             <div class="row">
-              <div class="s-result-box4">
+              <div class="s-result-box4" style="padding-left: 14px;color: #952e40;line-height: 14px; padding-top: 14px;">
                 {{show_company.Address}}
               </div>
             </div>
         </div>
       </div>
       <div class="row">
-          <div class="s-result-box5">
+          <div class="s-result-box5" style="padding-left: 14px;color: #952e40;line-height: 14px; padding-top: 14px;">
                For {{show_company.Gender}}        
           </div>
-           <div class="s-result-box6">
+           <div class="s-result-box6" style="padding-left: 14px;color: #952e40;line-height: 14px; padding-top: 10px;">
                Near from {{show_company.Near_College}}  
           </div>
       </div>
       <div class="row">
-          <div class="s-result-box7">
-               Single Price:{{show_company.Single_Price}}<br>
-               Double Price:{{show_company.Double_Price}} <br>Triple Price:{{show_company.Triple_Price}}<br>
-               Quad Price:{{show_company.Quad_Price}} <br>
+          <div class="s-result-box7" style="padding-left: 17px;color: #952e40;line-height: 09px; padding-top: 10px;">
+                        <p>--Bed Prices--</p>
+               <p><b>Single:</b> {{show_company.Single_Price}}/-</p>
+                        <p><b>Double:</b> {{show_company.Double_Price}}/-</p>
+                        <p><b>Triple:</b>{{show_company.Triple_Price}}/-</p>
+                        </a>
+                        <p><b>Quad:</b>{{show_company.Quad_Price}}/-</p>
           </div>
            <div class="s-result-box8">
-                BOOK NOW     
-          </div>
-      </div>
-      <div class="row">
-          <div class="s-result-box9">
-          xvcvv 
+                <a href="{%url 'enquiry'%}" target="_blank" style="font-size:28px;color: #952e40;line-height: 27px;"><b>BOOK NOW</b></a>   
           </div>
       </div>
     </div>

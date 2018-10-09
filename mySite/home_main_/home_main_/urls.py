@@ -16,11 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from django.contrib.auth import views as auth_views
-
+from enquiry_users import views 
 
 urlpatterns = [
     path('',include('home.urls')),
     path('profile/',include('user.urls')),
+    path('enquiry/',views.enquiry,name='enquiry'),
     path('admin/', admin.site.urls),
     path('profile/login/',auth_views.LoginView,name='login'),
     path('profile/logout/',auth_views.LogoutView,name='logout'),
