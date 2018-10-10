@@ -11,12 +11,13 @@ input.searchbar
 div.search-header
 {
    margin-left:25% ;
+   margin-top: 3%;
 }
 div.row.search-row{
-    background: url(../images/search-bg2.jpg);
+    background: url(../images/background.png);
     position:relative;
     width: 100%;
-    height: 478px;
+    height: 509px;
     background-repeat: no-repeat;
     margin-left:0px;
 }
