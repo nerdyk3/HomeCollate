@@ -25,7 +25,7 @@ SECRET_KEY = '74dfjv&zp$(jn%z9l=1iikc#ah$$er(r9=amr^dcj8u5kx0f60'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*','13.233.128.63','homecollate.com']
 
 
 # Application definition
@@ -53,15 +53,18 @@ INSTALLED_APPS = [
 ]
 AUTH_USER_MODEL = 'user.User'
 
-PASSWORD_HASHERS = (
-    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
-    'django.contrib.auth.hashers.BCryptPasswordHasher',
-    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
-    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
-    'django.contrib.auth.hashers.SHA1PasswordHasher',
-    'django.contrib.auth.hashers.MD5PasswordHasher',
-    'django.contrib.auth.hashers.CryptPasswordHasher',
-)
+# PASSWORD_HASHERS = [
+#     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+#     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+#     'django.contrib.auth.hashers.Argon2PasswordHasher',
+#     'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+#     'django.contrib.auth.hashers.BCryptPasswordHasher',
+#     'django.contrib.auth.hashers.SHA1PasswordHasher',
+#     'django.contrib.auth.hashers.MD5PasswordHasher',
+#     'django.contrib.auth.hashers.UnsaltedSHA1PasswordHasher',
+#     'django.contrib.auth.hashers.UnsaltedMD5PasswordHasher',
+#     'django.contrib.auth.hashers.CryptPasswordHasher',
+# ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
