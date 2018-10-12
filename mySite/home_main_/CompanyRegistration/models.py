@@ -22,7 +22,7 @@ class Company_Registration(models.Model):
     Rating_list = (('1','1'),('2','2'),('3','3'),('4','4'),('5','5'))
     company = models.CharField(max_length=250)
     country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True)
-    city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True)
+    city = models.ManyToManyField(City)
     PGnumber = models.IntegerField(default=0)
     company_address = models.CharField(max_length=250)
     priceMini = models.IntegerField(default=0)

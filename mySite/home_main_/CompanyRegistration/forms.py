@@ -1,5 +1,5 @@
 from django import forms
-from .models import Company_Registration
+from .models import Company_Registration,City
 
 
 class Companyregistration(forms.ModelForm):
