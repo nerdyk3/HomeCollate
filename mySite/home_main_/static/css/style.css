@@ -13,6 +13,7 @@ div.search-header
    margin-left:25% ;
    margin-top: 3%;
 }
+
 div.row.search-row{
     background: url(../images/background.png);
     position:relative;
@@ -68,11 +69,13 @@ div.box1 {
   margin-left: -30px;
 }
 div.box2 {
-
   height: 53px;
   width: 100%;
   background-color: #fff;
   border-radius: 0px 0px 15px 15px;
+  text-align: center;
+  font-weight:800;
+  padding-top: 5%; 
  
 }
 div.box2-style

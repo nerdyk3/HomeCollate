@@ -1,56 +1,47 @@
 {%extends 'base.html'%} {%block element%} {%load static%}
 
-    
-
 <div class="container">
-    <div class="row main">
-        <div class="main-login main-center">
+  <div class="row">
+  <div class="col-md-3">
     
-  <h2>Submit Your Quary</h2>
-  <form method="POST">
-                {%csrf_token%}
-  	<div class="form-group">
-      <label for="enquiry_user">Your Name:
-      <input type="text" class="form-control" id="pwd" placeholder="Enter Text" name="enquiry_user">
-      </label>
+  </div>
+<div class="col-md-5">
+    <div class="form-area">  
+        <form role="form" method="POST">
+          {%csrf_token%}
+        <br style="clear:both">
+                    <h3 style="margin-bottom: 25px; text-align: center; color: #8e053d">Post Your Enquiry</h3>
+            <div class="form-group">
+            <input type="text" class="form-control" id="name" name="enquiry_user" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="email" name="enquiry_email" placeholder="Your Email" required>
+          </div>
+          <div class="form-group">
+            <input type="number" class="form-control" id="mobile" name="enquiry_number" placeholder="Mobile Number" required>
+          </div>
+           <div class="form-group">
+            <input type="text" class="form-control" id="mobile" name="enquiry_area" placeholder="Area Name" required>
+          </div>
+          <div class="form-group">
+            <input type="number" class="form-control" id="mobile" name="enquiry_budget" placeholder="Your Budget" required>
+          </div>
+          <div class="form-group">
+          <select class="form-control" name="enquiry_type">
+            <option value="">Select Your Room</option>
+            <option value="Private Room">Private Room</option>
+            <option value="Shared Room">Shared Room</option>
+          </select>
+          </div>
+          <div class="form-group">
+                    <textarea class="form-control" name="enquiry_comment" type="textarea" id="message" placeholder="Message" maxlength="140" rows="7"></textarea>                   
+                    </div>
+            
+        <button type="submit" id="submit" class="btn btn-primary pull-right">Submit</button>
+        </form>
+        <br><br>
     </div>
-    <div class="form-group">
-      <label for="email">Email:
-      <input type="email" class="form-control" id="enquiry_email" placeholder="Enter email" name="enquiry_email">
-      </label>
-    </div>
-    <div class="form-group">
-      <label for="enquiry_number">Mobile Number:
-      <input type="number" class="form-control" id="enquiry_number" placeholder="Enter Mobile Number" name="enquiry_number">
-      </label>
-    </div>
-    
-    <div class="form-group">
-      <label for="enquiry_area">Area:
-      <input type="text" class="form-control" id="enquiry_area" placeholder="Enter Area" name="enquiry_area">
-      </label>
-    </div>
-    <div class="form-group">
-      <label for="enquiry_budget">Your Budget:
-      <input type="number" class="form-control" id="enquiry_budget" placeholder="Enter Budget" name="enquiry_budget">
-      </label>
-    </div>
-    <select name="enquiry_type">
-	  <option value="">Select Your Room</option>
-	  <option value="Private Room">Private Room</option>
-	  <option value="Shared Room">Shared Room</option>
-	</select>
-    <div class="form-group">
-      <label for="enquiry_budget">Comment:
-      <input type="text" class="form-control" id="enquiry_comment" placeholder="comment" name="enquiry_comment">
-      </label>
-    </div>
-    <button type="submit" class="btn btn-default">Submit</button>
-  </form>
 </div>
 </div>
 </div>
-</div>
-
-
 {%endblock%}

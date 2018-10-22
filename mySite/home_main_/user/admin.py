@@ -20,7 +20,7 @@ class UserAdmin(BaseUserAdmin):
     list_display = ('email', 'admin')
     list_filter = ('admin',)
     fieldsets = (
-        (None, {'fields': ('full_name','email', 'password',)}),
+        (None, {'fields': ('username','full_name','email', 'password',)}),
         ('Personal info', {'fields': ('model_pic','student_company','mobile',)}),
         ('Permissions', {'fields': ('admin',)}),
     )

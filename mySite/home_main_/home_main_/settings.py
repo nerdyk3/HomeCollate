@@ -38,10 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites', # new
-
-    'searchableselect',
-    
+    'django.contrib.sites', # new    
     'social_django',
     'allauth', # new
     'allauth.account', # new
