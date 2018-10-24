@@ -111,6 +111,14 @@ div.box5-style
 { padding: 0px;
   border-right: 2px solid white;
 }
+.total-pg
+{
+    font-size: 12.5px;
+    color: #952e40;
+    margin-top: -4px;
+    text-align: center;
+    line-height: 112%;
+}
 div.box6 {
   height: 54px;
 
@@ -120,11 +128,8 @@ div.box6 {
   margin-left: 60%;
 }
 div.box7 {
-  height: 33px;
- 
-  background-color: #fff;
-  border-radius: 15px 15px 0px 0px;
-  margin-top:138px;
+  
+margin-top:138px;
 }
 div.box7-style
 {  
